@@ -1,0 +1,25 @@
+syntax = "proto3";
+package acuri.v0;
+import "entity.proto";
+option go_package = "github.com/scurid/acuri-api/pkg/grpc/acuri/v0";
+
+// This API is to be used by:
+// * Acuri Mobile
+// * Acuri SaaS
+
+service AcuriSaaS {
+  // GetElementList accepts platform identity otherwise also known as customer identity which a Scurid issued identity for the customer.
+  // returns array of elements / hardware that are available for the customer
+  rpc GetElementList(GetElementListReq) returns (GetElementListRes) {};
+}
+
+message GetElementListReq{
+entity.v0.Customer customer = 1; // customer identity issued by Scurid; this is a unique DID issued per customer's organization
+}
+
+
+
+message GetElementListRes {
+  repeated entity.v0.Element element = 1; // array of elements per customer
+}
+
