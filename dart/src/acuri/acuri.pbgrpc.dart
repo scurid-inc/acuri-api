@@ -20,6 +20,18 @@ class AcuriSaaSClient extends $grpc.Client {
           ($0.GetElementListReq value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.GetElementListRes.fromBuffer(value));
+  static final _$postUserInfo =
+      $grpc.ClientMethod<$0.PostUserInfoReq, $0.PostUserInfoRes>(
+          '/acuri.v0.AcuriSaaS/PostUserInfo',
+          ($0.PostUserInfoReq value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.PostUserInfoRes.fromBuffer(value));
+  static final _$getElementData =
+      $grpc.ClientMethod<$0.GetElementDataReq, $0.GetElementDataRes>(
+          '/acuri.v0.AcuriSaaS/GetElementData',
+          ($0.GetElementDataReq value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.GetElementDataRes.fromBuffer(value));
 
   AcuriSaaSClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -30,6 +42,18 @@ class AcuriSaaSClient extends $grpc.Client {
       $0.GetElementListReq request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getElementList, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.PostUserInfoRes> postUserInfo(
+      $0.PostUserInfoReq request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$postUserInfo, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.GetElementDataRes> getElementData(
+      $0.GetElementDataReq request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getElementData, request, options: options);
   }
 }
 
@@ -44,6 +68,20 @@ abstract class AcuriSaaSServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.GetElementListReq.fromBuffer(value),
         ($0.GetElementListRes value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.PostUserInfoReq, $0.PostUserInfoRes>(
+        'PostUserInfo',
+        postUserInfo_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.PostUserInfoReq.fromBuffer(value),
+        ($0.PostUserInfoRes value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetElementDataReq, $0.GetElementDataRes>(
+        'GetElementData',
+        getElementData_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.GetElementDataReq.fromBuffer(value),
+        ($0.GetElementDataRes value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetElementListRes> getElementList_Pre($grpc.ServiceCall call,
@@ -51,6 +89,20 @@ abstract class AcuriSaaSServiceBase extends $grpc.Service {
     return getElementList(call, await request);
   }
 
+  $async.Future<$0.PostUserInfoRes> postUserInfo_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.PostUserInfoReq> request) async {
+    return postUserInfo(call, await request);
+  }
+
+  $async.Future<$0.GetElementDataRes> getElementData_Pre($grpc.ServiceCall call,
+      $async.Future<$0.GetElementDataReq> request) async {
+    return getElementData(call, await request);
+  }
+
   $async.Future<$0.GetElementListRes> getElementList(
       $grpc.ServiceCall call, $0.GetElementListReq request);
+  $async.Future<$0.PostUserInfoRes> postUserInfo(
+      $grpc.ServiceCall call, $0.PostUserInfoReq request);
+  $async.Future<$0.GetElementDataRes> getElementData(
+      $grpc.ServiceCall call, $0.GetElementDataReq request);
 }

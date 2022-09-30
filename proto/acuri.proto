@@ -11,15 +11,36 @@ service AcuriSaaS {
   // GetElementList accepts platform identity otherwise also known as customer identity which a Scurid issued identity for the customer.
   // returns array of elements / hardware that are available for the customer
   rpc GetElementList(GetElementListReq) returns (GetElementListRes) {};
+
+  // PostUserInfo used for sending app user infomration
+  rpc PostUserInfo(PostUserInfoReq) returns (PostUserInfoRes) {};
+
+  //GetElementData fetches information on single element
+  rpc GetElementData(GetElementDataReq) returns (GetElementDataRes) {};
 }
+
+message GetElementDataReq{
+  string elementID = 1; // this is the DID or identity of the element provided by the Scurid Edge Agent
+}
+
+message GetElementDataRes {
+  entity.v0.Element data = 1; // this is the data structure for the element id
+}
+
 
 message GetElementListReq{
-entity.v0.Customer customer = 1; // customer identity issued by Scurid; this is a unique DID issued per customer's organization
+  entity.v0.Customer customer = 1; // customer identity issued by Scurid; this is a unique DID issued per customer's organization
 }
-
-
 
 message GetElementListRes {
   repeated entity.v0.Element element = 1; // array of elements per customer
 }
 
+
+message PostUserInfoReq {
+  entity.v0.AppUser appUser = 1;
+}
+
+message PostUserInfoRes {
+  bool result = 1;
+}

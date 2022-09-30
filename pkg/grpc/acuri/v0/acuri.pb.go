@@ -21,6 +21,100 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetElementDataReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ElementID string `protobuf:"bytes,1,opt,name=elementID,proto3" json:"elementID,omitempty"` // this is the DID or identity of the element provided by the Scurid Edge Agent
+}
+
+func (x *GetElementDataReq) Reset() {
+	*x = GetElementDataReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_acuri_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetElementDataReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetElementDataReq) ProtoMessage() {}
+
+func (x *GetElementDataReq) ProtoReflect() protoreflect.Message {
+	mi := &file_acuri_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetElementDataReq.ProtoReflect.Descriptor instead.
+func (*GetElementDataReq) Descriptor() ([]byte, []int) {
+	return file_acuri_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetElementDataReq) GetElementID() string {
+	if x != nil {
+		return x.ElementID
+	}
+	return ""
+}
+
+type GetElementDataRes struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Data *v0.Element `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"` // this is the data structure for the element id
+}
+
+func (x *GetElementDataRes) Reset() {
+	*x = GetElementDataRes{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_acuri_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetElementDataRes) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetElementDataRes) ProtoMessage() {}
+
+func (x *GetElementDataRes) ProtoReflect() protoreflect.Message {
+	mi := &file_acuri_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetElementDataRes.ProtoReflect.Descriptor instead.
+func (*GetElementDataRes) Descriptor() ([]byte, []int) {
+	return file_acuri_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetElementDataRes) GetData() *v0.Element {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
 type GetElementListReq struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -32,7 +126,7 @@ type GetElementListReq struct {
 func (x *GetElementListReq) Reset() {
 	*x = GetElementListReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_acuri_proto_msgTypes[0]
+		mi := &file_acuri_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -45,7 +139,7 @@ func (x *GetElementListReq) String() string {
 func (*GetElementListReq) ProtoMessage() {}
 
 func (x *GetElementListReq) ProtoReflect() protoreflect.Message {
-	mi := &file_acuri_proto_msgTypes[0]
+	mi := &file_acuri_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +152,7 @@ func (x *GetElementListReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetElementListReq.ProtoReflect.Descriptor instead.
 func (*GetElementListReq) Descriptor() ([]byte, []int) {
-	return file_acuri_proto_rawDescGZIP(), []int{0}
+	return file_acuri_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetElementListReq) GetCustomer() *v0.Customer {
@@ -79,7 +173,7 @@ type GetElementListRes struct {
 func (x *GetElementListRes) Reset() {
 	*x = GetElementListRes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_acuri_proto_msgTypes[1]
+		mi := &file_acuri_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -92,7 +186,7 @@ func (x *GetElementListRes) String() string {
 func (*GetElementListRes) ProtoMessage() {}
 
 func (x *GetElementListRes) ProtoReflect() protoreflect.Message {
-	mi := &file_acuri_proto_msgTypes[1]
+	mi := &file_acuri_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -105,7 +199,7 @@ func (x *GetElementListRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetElementListRes.ProtoReflect.Descriptor instead.
 func (*GetElementListRes) Descriptor() ([]byte, []int) {
-	return file_acuri_proto_rawDescGZIP(), []int{1}
+	return file_acuri_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetElementListRes) GetElement() []*v0.Element {
@@ -115,12 +209,113 @@ func (x *GetElementListRes) GetElement() []*v0.Element {
 	return nil
 }
 
+type PostUserInfoReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	AppUser *v0.AppUser `protobuf:"bytes,1,opt,name=appUser,proto3" json:"appUser,omitempty"`
+}
+
+func (x *PostUserInfoReq) Reset() {
+	*x = PostUserInfoReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_acuri_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PostUserInfoReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PostUserInfoReq) ProtoMessage() {}
+
+func (x *PostUserInfoReq) ProtoReflect() protoreflect.Message {
+	mi := &file_acuri_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PostUserInfoReq.ProtoReflect.Descriptor instead.
+func (*PostUserInfoReq) Descriptor() ([]byte, []int) {
+	return file_acuri_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *PostUserInfoReq) GetAppUser() *v0.AppUser {
+	if x != nil {
+		return x.AppUser
+	}
+	return nil
+}
+
+type PostUserInfoRes struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Result bool `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+}
+
+func (x *PostUserInfoRes) Reset() {
+	*x = PostUserInfoRes{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_acuri_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PostUserInfoRes) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PostUserInfoRes) ProtoMessage() {}
+
+func (x *PostUserInfoRes) ProtoReflect() protoreflect.Message {
+	mi := &file_acuri_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PostUserInfoRes.ProtoReflect.Descriptor instead.
+func (*PostUserInfoRes) Descriptor() ([]byte, []int) {
+	return file_acuri_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *PostUserInfoRes) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
 var File_acuri_proto protoreflect.FileDescriptor
 
 var file_acuri_proto_rawDesc = []byte{
 	0x0a, 0x0b, 0x61, 0x63, 0x75, 0x72, 0x69, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x08, 0x61,
 	0x63, 0x75, 0x72, 0x69, 0x2e, 0x76, 0x30, 0x1a, 0x0c, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x44, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x45, 0x6c, 0x65, 0x6d,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x31, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x45, 0x6c, 0x65, 0x6d,
+	0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x71, 0x12, 0x1c, 0x0a, 0x09, 0x65, 0x6c,
+	0x65, 0x6d, 0x65, 0x6e, 0x74, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x65,
+	0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x49, 0x44, 0x22, 0x3b, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x45,
+	0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x12, 0x26, 0x0a,
+	0x04, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x65, 0x6e,
+	0x74, 0x69, 0x74, 0x79, 0x2e, 0x76, 0x30, 0x2e, 0x45, 0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x52,
+	0x04, 0x64, 0x61, 0x74, 0x61, 0x22, 0x44, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x45, 0x6c, 0x65, 0x6d,
 	0x65, 0x6e, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x12, 0x2f, 0x0a, 0x08, 0x63, 0x75,
 	0x73, 0x74, 0x6f, 0x6d, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x65,
 	0x6e, 0x74, 0x69, 0x74, 0x79, 0x2e, 0x76, 0x30, 0x2e, 0x43, 0x75, 0x73, 0x74, 0x6f, 0x6d, 0x65,
@@ -128,17 +323,33 @@ var file_acuri_proto_rawDesc = []byte{
 	0x65, 0x74, 0x45, 0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73,
 	0x12, 0x2c, 0x0a, 0x07, 0x65, 0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x03, 0x28,
 	0x0b, 0x32, 0x12, 0x2e, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x2e, 0x76, 0x30, 0x2e, 0x45, 0x6c,
-	0x65, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x07, 0x65, 0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x32, 0x59,
-	0x0a, 0x09, 0x41, 0x63, 0x75, 0x72, 0x69, 0x53, 0x61, 0x61, 0x53, 0x12, 0x4c, 0x0a, 0x0e, 0x47,
-	0x65, 0x74, 0x45, 0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x1b, 0x2e,
-	0x61, 0x63, 0x75, 0x72, 0x69, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x45, 0x6c, 0x65, 0x6d,
-	0x65, 0x6e, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x1b, 0x2e, 0x61, 0x63, 0x75,
+	0x65, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x07, 0x65, 0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x22, 0x3f,
+	0x0a, 0x0f, 0x50, 0x6f, 0x73, 0x74, 0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65,
+	0x71, 0x12, 0x2c, 0x0a, 0x07, 0x61, 0x70, 0x70, 0x55, 0x73, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x12, 0x2e, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x2e, 0x76, 0x30, 0x2e, 0x41,
+	0x70, 0x70, 0x55, 0x73, 0x65, 0x72, 0x52, 0x07, 0x61, 0x70, 0x70, 0x55, 0x73, 0x65, 0x72, 0x22,
+	0x29, 0x0a, 0x0f, 0x50, 0x6f, 0x73, 0x74, 0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52,
+	0x65, 0x73, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x08, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x32, 0xef, 0x01, 0x0a, 0x09, 0x41,
+	0x63, 0x75, 0x72, 0x69, 0x53, 0x61, 0x61, 0x53, 0x12, 0x4c, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x45,
+	0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x1b, 0x2e, 0x61, 0x63, 0x75,
 	0x72, 0x69, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x45, 0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74,
-	0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x22, 0x00, 0x42, 0x2f, 0x5a, 0x2d, 0x67, 0x69, 0x74,
-	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x73, 0x63, 0x75, 0x72, 0x69, 0x64, 0x2f, 0x61,
-	0x63, 0x75, 0x72, 0x69, 0x2d, 0x61, 0x70, 0x69, 0x2f, 0x70, 0x6b, 0x67, 0x2f, 0x67, 0x72, 0x70,
-	0x63, 0x2f, 0x61, 0x63, 0x75, 0x72, 0x69, 0x2f, 0x76, 0x30, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x1b, 0x2e, 0x61, 0x63, 0x75, 0x72, 0x69, 0x2e,
+	0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x45, 0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x4c, 0x69, 0x73,
+	0x74, 0x52, 0x65, 0x73, 0x22, 0x00, 0x12, 0x46, 0x0a, 0x0c, 0x50, 0x6f, 0x73, 0x74, 0x55, 0x73,
+	0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x19, 0x2e, 0x61, 0x63, 0x75, 0x72, 0x69, 0x2e, 0x76,
+	0x30, 0x2e, 0x50, 0x6f, 0x73, 0x74, 0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65,
+	0x71, 0x1a, 0x19, 0x2e, 0x61, 0x63, 0x75, 0x72, 0x69, 0x2e, 0x76, 0x30, 0x2e, 0x50, 0x6f, 0x73,
+	0x74, 0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x22, 0x00, 0x12, 0x4c,
+	0x0a, 0x0e, 0x47, 0x65, 0x74, 0x45, 0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61,
+	0x12, 0x1b, 0x2e, 0x61, 0x63, 0x75, 0x72, 0x69, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x45,
+	0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x71, 0x1a, 0x1b, 0x2e,
+	0x61, 0x63, 0x75, 0x72, 0x69, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x45, 0x6c, 0x65, 0x6d,
+	0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x22, 0x00, 0x42, 0x2f, 0x5a, 0x2d,
+	0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x73, 0x63, 0x75, 0x72, 0x69,
+	0x64, 0x2f, 0x61, 0x63, 0x75, 0x72, 0x69, 0x2d, 0x61, 0x70, 0x69, 0x2f, 0x70, 0x6b, 0x67, 0x2f,
+	0x67, 0x72, 0x70, 0x63, 0x2f, 0x61, 0x63, 0x75, 0x72, 0x69, 0x2f, 0x76, 0x30, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -153,23 +364,34 @@ func file_acuri_proto_rawDescGZIP() []byte {
 	return file_acuri_proto_rawDescData
 }
 
-var file_acuri_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_acuri_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_acuri_proto_goTypes = []interface{}{
-	(*GetElementListReq)(nil), // 0: acuri.v0.GetElementListReq
-	(*GetElementListRes)(nil), // 1: acuri.v0.GetElementListRes
-	(*v0.Customer)(nil),       // 2: entity.v0.Customer
-	(*v0.Element)(nil),        // 3: entity.v0.Element
+	(*GetElementDataReq)(nil), // 0: acuri.v0.GetElementDataReq
+	(*GetElementDataRes)(nil), // 1: acuri.v0.GetElementDataRes
+	(*GetElementListReq)(nil), // 2: acuri.v0.GetElementListReq
+	(*GetElementListRes)(nil), // 3: acuri.v0.GetElementListRes
+	(*PostUserInfoReq)(nil),   // 4: acuri.v0.PostUserInfoReq
+	(*PostUserInfoRes)(nil),   // 5: acuri.v0.PostUserInfoRes
+	(*v0.Element)(nil),        // 6: entity.v0.Element
+	(*v0.Customer)(nil),       // 7: entity.v0.Customer
+	(*v0.AppUser)(nil),        // 8: entity.v0.AppUser
 }
 var file_acuri_proto_depIdxs = []int32{
-	2, // 0: acuri.v0.GetElementListReq.customer:type_name -> entity.v0.Customer
-	3, // 1: acuri.v0.GetElementListRes.element:type_name -> entity.v0.Element
-	0, // 2: acuri.v0.AcuriSaaS.GetElementList:input_type -> acuri.v0.GetElementListReq
-	1, // 3: acuri.v0.AcuriSaaS.GetElementList:output_type -> acuri.v0.GetElementListRes
-	3, // [3:4] is the sub-list for method output_type
-	2, // [2:3] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	6, // 0: acuri.v0.GetElementDataRes.data:type_name -> entity.v0.Element
+	7, // 1: acuri.v0.GetElementListReq.customer:type_name -> entity.v0.Customer
+	6, // 2: acuri.v0.GetElementListRes.element:type_name -> entity.v0.Element
+	8, // 3: acuri.v0.PostUserInfoReq.appUser:type_name -> entity.v0.AppUser
+	2, // 4: acuri.v0.AcuriSaaS.GetElementList:input_type -> acuri.v0.GetElementListReq
+	4, // 5: acuri.v0.AcuriSaaS.PostUserInfo:input_type -> acuri.v0.PostUserInfoReq
+	0, // 6: acuri.v0.AcuriSaaS.GetElementData:input_type -> acuri.v0.GetElementDataReq
+	3, // 7: acuri.v0.AcuriSaaS.GetElementList:output_type -> acuri.v0.GetElementListRes
+	5, // 8: acuri.v0.AcuriSaaS.PostUserInfo:output_type -> acuri.v0.PostUserInfoRes
+	1, // 9: acuri.v0.AcuriSaaS.GetElementData:output_type -> acuri.v0.GetElementDataRes
+	7, // [7:10] is the sub-list for method output_type
+	4, // [4:7] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_acuri_proto_init() }
@@ -179,7 +401,7 @@ func file_acuri_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_acuri_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetElementListReq); i {
+			switch v := v.(*GetElementDataReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -191,7 +413,55 @@ func file_acuri_proto_init() {
 			}
 		}
 		file_acuri_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetElementDataRes); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_acuri_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetElementListReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_acuri_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetElementListRes); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_acuri_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PostUserInfoReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_acuri_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PostUserInfoRes); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -209,7 +479,7 @@ func file_acuri_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_acuri_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -5,8 +5,18 @@ option go_package = "github.com/scurid/acuri-api/pkg/grpc/entity/v0";
 message Element {
   string identity = 1; // this is the Scurid Edge agent identity of the element / hardware;
   bool enabled = 2; // whether the hardware / element is active or not
+  string gps = 3; // gps coordinate for the element
 }
 
 message Customer {
   string identity = 1; // this is the Scurid Edge agent identity of the element / hardware;
+}
+
+message AppUser {
+  string elementIdentity = 1; // UID
+  string rssi = 2; // BLE information
+  string userID = 3 ; //
+  int64 timestamp = 4; // UNIX UTC Nanoseconds
+  string eventMetaData = 5;
+  string coordinateMeta = 6; // GPS location
 }

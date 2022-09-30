@@ -21,6 +21,10 @@ type AcuriSaaSClient interface {
 	// GetElementList accepts platform identity otherwise also known as customer identity which a Scurid issued identity for the customer.
 	// returns array of elements / hardware that are available for the customer
 	GetElementList(ctx context.Context, in *GetElementListReq, opts ...grpc.CallOption) (*GetElementListRes, error)
+	// PostUserInfo used for sending app user infomration
+	PostUserInfo(ctx context.Context, in *PostUserInfoReq, opts ...grpc.CallOption) (*PostUserInfoRes, error)
+	//GetElementData fetches information on single element
+	GetElementData(ctx context.Context, in *GetElementDataReq, opts ...grpc.CallOption) (*GetElementDataRes, error)
 }
 
 type acuriSaaSClient struct {
@@ -40,6 +44,24 @@ func (c *acuriSaaSClient) GetElementList(ctx context.Context, in *GetElementList
 	return out, nil
 }
 
+func (c *acuriSaaSClient) PostUserInfo(ctx context.Context, in *PostUserInfoReq, opts ...grpc.CallOption) (*PostUserInfoRes, error) {
+	out := new(PostUserInfoRes)
+	err := c.cc.Invoke(ctx, "/acuri.v0.AcuriSaaS/PostUserInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *acuriSaaSClient) GetElementData(ctx context.Context, in *GetElementDataReq, opts ...grpc.CallOption) (*GetElementDataRes, error) {
+	out := new(GetElementDataRes)
+	err := c.cc.Invoke(ctx, "/acuri.v0.AcuriSaaS/GetElementData", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AcuriSaaSServer is the server API for AcuriSaaS service.
 // All implementations must embed UnimplementedAcuriSaaSServer
 // for forward compatibility
@@ -47,6 +69,10 @@ type AcuriSaaSServer interface {
 	// GetElementList accepts platform identity otherwise also known as customer identity which a Scurid issued identity for the customer.
 	// returns array of elements / hardware that are available for the customer
 	GetElementList(context.Context, *GetElementListReq) (*GetElementListRes, error)
+	// PostUserInfo used for sending app user infomration
+	PostUserInfo(context.Context, *PostUserInfoReq) (*PostUserInfoRes, error)
+	//GetElementData fetches information on single element
+	GetElementData(context.Context, *GetElementDataReq) (*GetElementDataRes, error)
 	mustEmbedUnimplementedAcuriSaaSServer()
 }
 
@@ -56,6 +82,12 @@ type UnimplementedAcuriSaaSServer struct {
 
 func (UnimplementedAcuriSaaSServer) GetElementList(context.Context, *GetElementListReq) (*GetElementListRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetElementList not implemented")
+}
+func (UnimplementedAcuriSaaSServer) PostUserInfo(context.Context, *PostUserInfoReq) (*PostUserInfoRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PostUserInfo not implemented")
+}
+func (UnimplementedAcuriSaaSServer) GetElementData(context.Context, *GetElementDataReq) (*GetElementDataRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetElementData not implemented")
 }
 func (UnimplementedAcuriSaaSServer) mustEmbedUnimplementedAcuriSaaSServer() {}
 
@@ -88,6 +120,42 @@ func _AcuriSaaS_GetElementList_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AcuriSaaS_PostUserInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PostUserInfoReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AcuriSaaSServer).PostUserInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/acuri.v0.AcuriSaaS/PostUserInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AcuriSaaSServer).PostUserInfo(ctx, req.(*PostUserInfoReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AcuriSaaS_GetElementData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetElementDataReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AcuriSaaSServer).GetElementData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/acuri.v0.AcuriSaaS/GetElementData",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AcuriSaaSServer).GetElementData(ctx, req.(*GetElementDataReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AcuriSaaS_ServiceDesc is the grpc.ServiceDesc for AcuriSaaS service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -98,6 +166,14 @@ var AcuriSaaS_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetElementList",
 			Handler:    _AcuriSaaS_GetElementList_Handler,
+		},
+		{
+			MethodName: "PostUserInfo",
+			Handler:    _AcuriSaaS_PostUserInfo_Handler,
+		},
+		{
+			MethodName: "GetElementData",
+			Handler:    _AcuriSaaS_GetElementData_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

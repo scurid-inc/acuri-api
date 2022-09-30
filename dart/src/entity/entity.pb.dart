@@ -7,12 +7,14 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class Element extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Element', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'entity.v0'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'identity')
     ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'enabled')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gps')
     ..hasRequiredFields = false
   ;
 
@@ -20,6 +22,7 @@ class Element extends $pb.GeneratedMessage {
   factory Element({
     $core.String? identity,
     $core.bool? enabled,
+    $core.String? gps,
   }) {
     final _result = create();
     if (identity != null) {
@@ -27,6 +30,9 @@ class Element extends $pb.GeneratedMessage {
     }
     if (enabled != null) {
       _result.enabled = enabled;
+    }
+    if (gps != null) {
+      _result.gps = gps;
     }
     return _result;
   }
@@ -68,6 +74,15 @@ class Element extends $pb.GeneratedMessage {
   $core.bool hasEnabled() => $_has(1);
   @$pb.TagNumber(2)
   void clearEnabled() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get gps => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set gps($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasGps() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearGps() => clearField(3);
 }
 
 class Customer extends $pb.GeneratedMessage {
@@ -115,5 +130,122 @@ class Customer extends $pb.GeneratedMessage {
   $core.bool hasIdentity() => $_has(0);
   @$pb.TagNumber(1)
   void clearIdentity() => clearField(1);
+}
+
+class AppUser extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'AppUser', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'entity.v0'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'elementIdentity', protoName: 'elementIdentity')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rssi')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userID', protoName: 'userID')
+    ..aInt64(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'timestamp')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'eventMetaData', protoName: 'eventMetaData')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'coordinateMeta', protoName: 'coordinateMeta')
+    ..hasRequiredFields = false
+  ;
+
+  AppUser._() : super();
+  factory AppUser({
+    $core.String? elementIdentity,
+    $core.String? rssi,
+    $core.String? userID,
+    $fixnum.Int64? timestamp,
+    $core.String? eventMetaData,
+    $core.String? coordinateMeta,
+  }) {
+    final _result = create();
+    if (elementIdentity != null) {
+      _result.elementIdentity = elementIdentity;
+    }
+    if (rssi != null) {
+      _result.rssi = rssi;
+    }
+    if (userID != null) {
+      _result.userID = userID;
+    }
+    if (timestamp != null) {
+      _result.timestamp = timestamp;
+    }
+    if (eventMetaData != null) {
+      _result.eventMetaData = eventMetaData;
+    }
+    if (coordinateMeta != null) {
+      _result.coordinateMeta = coordinateMeta;
+    }
+    return _result;
+  }
+  factory AppUser.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory AppUser.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  AppUser clone() => AppUser()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  AppUser copyWith(void Function(AppUser) updates) => super.copyWith((message) => updates(message as AppUser)) as AppUser; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static AppUser create() => AppUser._();
+  AppUser createEmptyInstance() => create();
+  static $pb.PbList<AppUser> createRepeated() => $pb.PbList<AppUser>();
+  @$core.pragma('dart2js:noInline')
+  static AppUser getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AppUser>(create);
+  static AppUser? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get elementIdentity => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set elementIdentity($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasElementIdentity() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearElementIdentity() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get rssi => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set rssi($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRssi() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRssi() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get userID => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set userID($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasUserID() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearUserID() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get timestamp => $_getI64(3);
+  @$pb.TagNumber(4)
+  set timestamp($fixnum.Int64 v) { $_setInt64(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasTimestamp() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearTimestamp() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get eventMetaData => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set eventMetaData($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasEventMetaData() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearEventMetaData() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get coordinateMeta => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set coordinateMeta($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasCoordinateMeta() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearCoordinateMeta() => clearField(6);
 }
 
