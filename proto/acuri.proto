@@ -1,7 +1,7 @@
 syntax = "proto3";
 package acuri.v0;
 import "entity.proto";
-option go_package = "github.com/scurid/acuri-api/pkg/grpc/acuri/v0";
+option go_package = "github.com/scurid-inc/acuri-api/pkg/grpc/acuri/v0";
 
 // This API is to be used by:
 // * Acuri Mobile

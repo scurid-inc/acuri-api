@@ -1,6 +1,6 @@
 syntax = "proto3";
 package entity.v0;
-option go_package = "github.com/scurid/acuri-api/pkg/grpc/entity/v0";
+option go_package = "github.com/scurid-inc/acuri-api/pkg/grpc/entity/v0";
 
 message Element {
   string identity = 1; // this is the Scurid Edge agent identity of the element / hardware;
