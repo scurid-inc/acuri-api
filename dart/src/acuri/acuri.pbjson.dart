@@ -22,13 +22,12 @@ final $typed_data.Uint8List getElementDataReqDescriptor = $convert.base64Decode(
 const GetElementDataRes$json = const {
   '1': 'GetElementDataRes',
   '2': const [
-    const {'1': 'metadata', '3': 1, '4': 1, '5': 11, '6': '.entity.v0.Element', '10': 'metadata'},
-    const {'1': 'elementData', '3': 2, '4': 1, '5': 11, '6': '.entity.v0.ElementData', '10': 'elementData'},
+    const {'1': 'elementData', '3': 1, '4': 3, '5': 11, '6': '.entity.v0.ElementData', '10': 'elementData'},
   ],
 };
 
 /// Descriptor for `GetElementDataRes`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getElementDataResDescriptor = $convert.base64Decode('ChFHZXRFbGVtZW50RGF0YVJlcxIuCghtZXRhZGF0YRgBIAEoCzISLmVudGl0eS52MC5FbGVtZW50UghtZXRhZGF0YRI4CgtlbGVtZW50RGF0YRgCIAEoCzIWLmVudGl0eS52MC5FbGVtZW50RGF0YVILZWxlbWVudERhdGE=');
+final $typed_data.Uint8List getElementDataResDescriptor = $convert.base64Decode('ChFHZXRFbGVtZW50RGF0YVJlcxI4CgtlbGVtZW50RGF0YRgBIAMoCzIWLmVudGl0eS52MC5FbGVtZW50RGF0YVILZWxlbWVudERhdGE=');
 @$core.Deprecated('Use getElementListReqDescriptor instead')
 const GetElementListReq$json = const {
   '1': 'GetElementListReq',

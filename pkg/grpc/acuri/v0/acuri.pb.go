@@ -73,8 +73,7 @@ type GetElementDataRes struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Metadata    *v0.Element     `protobuf:"bytes,1,opt,name=metadata,proto3" json:"metadata,omitempty"`       // this is the data structure for the element id
-	ElementData *v0.ElementData `protobuf:"bytes,2,opt,name=elementData,proto3" json:"elementData,omitempty"` // element data captured on the device
+	ElementData []*v0.ElementData `protobuf:"bytes,1,rep,name=elementData,proto3" json:"elementData,omitempty"` // element data captured on the device
 }
 
 func (x *GetElementDataRes) Reset() {
@@ -109,14 +108,7 @@ func (*GetElementDataRes) Descriptor() ([]byte, []int) {
 	return file_acuri_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetElementDataRes) GetMetadata() *v0.Element {
-	if x != nil {
-		return x.Metadata
-	}
-	return nil
-}
-
-func (x *GetElementDataRes) GetElementData() *v0.ElementData {
+func (x *GetElementDataRes) GetElementData() []*v0.ElementData {
 	if x != nil {
 		return x.ElementData
 	}
@@ -319,12 +311,9 @@ var file_acuri_proto_rawDesc = []byte{
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x31, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x45, 0x6c, 0x65, 0x6d,
 	0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x71, 0x12, 0x1c, 0x0a, 0x09, 0x65, 0x6c,
 	0x65, 0x6d, 0x65, 0x6e, 0x74, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x65,
-	0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x49, 0x44, 0x22, 0x7d, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x45,
-	0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x12, 0x2e, 0x0a,
-	0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x12, 0x2e, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x2e, 0x76, 0x30, 0x2e, 0x45, 0x6c, 0x65, 0x6d,
-	0x65, 0x6e, 0x74, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x38, 0x0a,
-	0x0b, 0x65, 0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x01,
+	0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x49, 0x44, 0x22, 0x4d, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x45,
+	0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x12, 0x38, 0x0a,
+	0x0b, 0x65, 0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x03,
 	0x28, 0x0b, 0x32, 0x16, 0x2e, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x2e, 0x76, 0x30, 0x2e, 0x45,
 	0x6c, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61, 0x52, 0x0b, 0x65, 0x6c, 0x65, 0x6d,
 	0x65, 0x6e, 0x74, 0x44, 0x61, 0x74, 0x61, 0x22, 0x44, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x45, 0x6c,
@@ -384,28 +373,27 @@ var file_acuri_proto_goTypes = []interface{}{
 	(*GetElementListRes)(nil), // 3: acuri.v0.GetElementListRes
 	(*PostUserInfoReq)(nil),   // 4: acuri.v0.PostUserInfoReq
 	(*PostUserInfoRes)(nil),   // 5: acuri.v0.PostUserInfoRes
-	(*v0.Element)(nil),        // 6: entity.v0.Element
-	(*v0.ElementData)(nil),    // 7: entity.v0.ElementData
-	(*v0.Customer)(nil),       // 8: entity.v0.Customer
+	(*v0.ElementData)(nil),    // 6: entity.v0.ElementData
+	(*v0.Customer)(nil),       // 7: entity.v0.Customer
+	(*v0.Element)(nil),        // 8: entity.v0.Element
 	(*v0.AppUser)(nil),        // 9: entity.v0.AppUser
 }
 var file_acuri_proto_depIdxs = []int32{
-	6, // 0: acuri.v0.GetElementDataRes.metadata:type_name -> entity.v0.Element
-	7, // 1: acuri.v0.GetElementDataRes.elementData:type_name -> entity.v0.ElementData
-	8, // 2: acuri.v0.GetElementListReq.customer:type_name -> entity.v0.Customer
-	6, // 3: acuri.v0.GetElementListRes.element:type_name -> entity.v0.Element
-	9, // 4: acuri.v0.PostUserInfoReq.appUser:type_name -> entity.v0.AppUser
-	2, // 5: acuri.v0.AcuriSaaS.GetElementList:input_type -> acuri.v0.GetElementListReq
-	4, // 6: acuri.v0.AcuriSaaS.PostUserInfo:input_type -> acuri.v0.PostUserInfoReq
-	0, // 7: acuri.v0.AcuriSaaS.GetElementData:input_type -> acuri.v0.GetElementDataReq
-	3, // 8: acuri.v0.AcuriSaaS.GetElementList:output_type -> acuri.v0.GetElementListRes
-	5, // 9: acuri.v0.AcuriSaaS.PostUserInfo:output_type -> acuri.v0.PostUserInfoRes
-	1, // 10: acuri.v0.AcuriSaaS.GetElementData:output_type -> acuri.v0.GetElementDataRes
-	8, // [8:11] is the sub-list for method output_type
-	5, // [5:8] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	6, // 0: acuri.v0.GetElementDataRes.elementData:type_name -> entity.v0.ElementData
+	7, // 1: acuri.v0.GetElementListReq.customer:type_name -> entity.v0.Customer
+	8, // 2: acuri.v0.GetElementListRes.element:type_name -> entity.v0.Element
+	9, // 3: acuri.v0.PostUserInfoReq.appUser:type_name -> entity.v0.AppUser
+	2, // 4: acuri.v0.AcuriSaaS.GetElementList:input_type -> acuri.v0.GetElementListReq
+	4, // 5: acuri.v0.AcuriSaaS.PostUserInfo:input_type -> acuri.v0.PostUserInfoReq
+	0, // 6: acuri.v0.AcuriSaaS.GetElementData:input_type -> acuri.v0.GetElementDataReq
+	3, // 7: acuri.v0.AcuriSaaS.GetElementList:output_type -> acuri.v0.GetElementListRes
+	5, // 8: acuri.v0.AcuriSaaS.PostUserInfo:output_type -> acuri.v0.PostUserInfoRes
+	1, // 9: acuri.v0.AcuriSaaS.GetElementData:output_type -> acuri.v0.GetElementDataRes
+	7, // [7:10] is the sub-list for method output_type
+	4, // [4:7] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_acuri_proto_init() }

@@ -24,8 +24,7 @@ message GetElementDataReq{
 }
 
 message GetElementDataRes {
-  entity.v0.Element metadata = 1; // this is the data structure for the element id
-  entity.v0.ElementData elementData = 2; // element data captured on the device
+  repeated entity.v0.ElementData elementData = 1; // element data captured on the device
 }
 
 
