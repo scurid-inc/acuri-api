@@ -60,17 +60,22 @@ class GetElementDataReq extends $pb.GeneratedMessage {
 
 class GetElementDataRes extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetElementDataRes', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'acuri.v0'), createEmptyInstance: create)
-    ..aOM<$1.Element>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'data', subBuilder: $1.Element.create)
+    ..aOM<$1.Element>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'metadata', subBuilder: $1.Element.create)
+    ..aOM<$1.ElementData>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'elementData', protoName: 'elementData', subBuilder: $1.ElementData.create)
     ..hasRequiredFields = false
   ;
 
   GetElementDataRes._() : super();
   factory GetElementDataRes({
-    $1.Element? data,
+    $1.Element? metadata,
+    $1.ElementData? elementData,
   }) {
     final _result = create();
-    if (data != null) {
-      _result.data = data;
+    if (metadata != null) {
+      _result.metadata = metadata;
+    }
+    if (elementData != null) {
+      _result.elementData = elementData;
     }
     return _result;
   }
@@ -96,15 +101,26 @@ class GetElementDataRes extends $pb.GeneratedMessage {
   static GetElementDataRes? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $1.Element get data => $_getN(0);
+  $1.Element get metadata => $_getN(0);
   @$pb.TagNumber(1)
-  set data($1.Element v) { setField(1, v); }
+  set metadata($1.Element v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasData() => $_has(0);
+  $core.bool hasMetadata() => $_has(0);
   @$pb.TagNumber(1)
-  void clearData() => clearField(1);
+  void clearMetadata() => clearField(1);
   @$pb.TagNumber(1)
-  $1.Element ensureData() => $_ensure(0);
+  $1.Element ensureMetadata() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $1.ElementData get elementData => $_getN(1);
+  @$pb.TagNumber(2)
+  set elementData($1.ElementData v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasElementData() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearElementData() => clearField(2);
+  @$pb.TagNumber(2)
+  $1.ElementData ensureElementData() => $_ensure(1);
 }
 
 class GetElementListReq extends $pb.GeneratedMessage {

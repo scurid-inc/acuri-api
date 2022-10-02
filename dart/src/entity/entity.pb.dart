@@ -14,7 +14,6 @@ class Element extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Element', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'entity.v0'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'identity')
     ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'enabled')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gps')
     ..hasRequiredFields = false
   ;
 
@@ -22,7 +21,6 @@ class Element extends $pb.GeneratedMessage {
   factory Element({
     $core.String? identity,
     $core.bool? enabled,
-    $core.String? gps,
   }) {
     final _result = create();
     if (identity != null) {
@@ -30,9 +28,6 @@ class Element extends $pb.GeneratedMessage {
     }
     if (enabled != null) {
       _result.enabled = enabled;
-    }
-    if (gps != null) {
-      _result.gps = gps;
     }
     return _result;
   }
@@ -74,15 +69,6 @@ class Element extends $pb.GeneratedMessage {
   $core.bool hasEnabled() => $_has(1);
   @$pb.TagNumber(2)
   void clearEnabled() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get gps => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set gps($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasGps() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearGps() => clearField(3);
 }
 
 class Customer extends $pb.GeneratedMessage {
@@ -247,5 +233,80 @@ class AppUser extends $pb.GeneratedMessage {
   $core.bool hasCoordinateMeta() => $_has(5);
   @$pb.TagNumber(6)
   void clearCoordinateMeta() => clearField(6);
+}
+
+class ElementData extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ElementData', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'entity.v0'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gps')
+    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'elementTimestamp', protoName: 'elementTimestamp')
+    ..aInt64(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serverTimestamp', protoName: 'serverTimestamp')
+    ..hasRequiredFields = false
+  ;
+
+  ElementData._() : super();
+  factory ElementData({
+    $core.String? gps,
+    $fixnum.Int64? elementTimestamp,
+    $fixnum.Int64? serverTimestamp,
+  }) {
+    final _result = create();
+    if (gps != null) {
+      _result.gps = gps;
+    }
+    if (elementTimestamp != null) {
+      _result.elementTimestamp = elementTimestamp;
+    }
+    if (serverTimestamp != null) {
+      _result.serverTimestamp = serverTimestamp;
+    }
+    return _result;
+  }
+  factory ElementData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ElementData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ElementData clone() => ElementData()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ElementData copyWith(void Function(ElementData) updates) => super.copyWith((message) => updates(message as ElementData)) as ElementData; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ElementData create() => ElementData._();
+  ElementData createEmptyInstance() => create();
+  static $pb.PbList<ElementData> createRepeated() => $pb.PbList<ElementData>();
+  @$core.pragma('dart2js:noInline')
+  static ElementData getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ElementData>(create);
+  static ElementData? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get gps => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set gps($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasGps() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearGps() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $fixnum.Int64 get elementTimestamp => $_getI64(1);
+  @$pb.TagNumber(2)
+  set elementTimestamp($fixnum.Int64 v) { $_setInt64(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasElementTimestamp() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearElementTimestamp() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $fixnum.Int64 get serverTimestamp => $_getI64(2);
+  @$pb.TagNumber(3)
+  set serverTimestamp($fixnum.Int64 v) { $_setInt64(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasServerTimestamp() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearServerTimestamp() => clearField(3);
 }
 

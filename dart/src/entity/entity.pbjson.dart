@@ -14,12 +14,11 @@ const Element$json = const {
   '2': const [
     const {'1': 'identity', '3': 1, '4': 1, '5': 9, '10': 'identity'},
     const {'1': 'enabled', '3': 2, '4': 1, '5': 8, '10': 'enabled'},
-    const {'1': 'gps', '3': 3, '4': 1, '5': 9, '10': 'gps'},
   ],
 };
 
 /// Descriptor for `Element`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List elementDescriptor = $convert.base64Decode('CgdFbGVtZW50EhoKCGlkZW50aXR5GAEgASgJUghpZGVudGl0eRIYCgdlbmFibGVkGAIgASgIUgdlbmFibGVkEhAKA2dwcxgDIAEoCVIDZ3Bz');
+final $typed_data.Uint8List elementDescriptor = $convert.base64Decode('CgdFbGVtZW50EhoKCGlkZW50aXR5GAEgASgJUghpZGVudGl0eRIYCgdlbmFibGVkGAIgASgIUgdlbmFibGVk');
 @$core.Deprecated('Use customerDescriptor instead')
 const Customer$json = const {
   '1': 'Customer',
@@ -45,3 +44,15 @@ const AppUser$json = const {
 
 /// Descriptor for `AppUser`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List appUserDescriptor = $convert.base64Decode('CgdBcHBVc2VyEigKD2VsZW1lbnRJZGVudGl0eRgBIAEoCVIPZWxlbWVudElkZW50aXR5EhIKBHJzc2kYAiABKAlSBHJzc2kSFgoGdXNlcklEGAMgASgJUgZ1c2VySUQSHAoJdGltZXN0YW1wGAQgASgDUgl0aW1lc3RhbXASJAoNZXZlbnRNZXRhRGF0YRgFIAEoCVINZXZlbnRNZXRhRGF0YRImCg5jb29yZGluYXRlTWV0YRgGIAEoCVIOY29vcmRpbmF0ZU1ldGE=');
+@$core.Deprecated('Use elementDataDescriptor instead')
+const ElementData$json = const {
+  '1': 'ElementData',
+  '2': const [
+    const {'1': 'gps', '3': 1, '4': 1, '5': 9, '10': 'gps'},
+    const {'1': 'elementTimestamp', '3': 2, '4': 1, '5': 3, '10': 'elementTimestamp'},
+    const {'1': 'serverTimestamp', '3': 3, '4': 1, '5': 3, '10': 'serverTimestamp'},
+  ],
+};
+
+/// Descriptor for `ElementData`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List elementDataDescriptor = $convert.base64Decode('CgtFbGVtZW50RGF0YRIQCgNncHMYASABKAlSA2dwcxIqChBlbGVtZW50VGltZXN0YW1wGAIgASgDUhBlbGVtZW50VGltZXN0YW1wEigKD3NlcnZlclRpbWVzdGFtcBgDIAEoA1IPc2VydmVyVGltZXN0YW1w');
