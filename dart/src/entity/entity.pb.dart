@@ -240,6 +240,7 @@ class ElementData extends $pb.GeneratedMessage {
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gps')
     ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'elementTimestamp', protoName: 'elementTimestamp')
     ..aInt64(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'serverTimestamp', protoName: 'serverTimestamp')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'data')
     ..hasRequiredFields = false
   ;
 
@@ -248,6 +249,7 @@ class ElementData extends $pb.GeneratedMessage {
     $core.String? gps,
     $fixnum.Int64? elementTimestamp,
     $fixnum.Int64? serverTimestamp,
+    $core.String? data,
   }) {
     final _result = create();
     if (gps != null) {
@@ -258,6 +260,9 @@ class ElementData extends $pb.GeneratedMessage {
     }
     if (serverTimestamp != null) {
       _result.serverTimestamp = serverTimestamp;
+    }
+    if (data != null) {
+      _result.data = data;
     }
     return _result;
   }
@@ -308,5 +313,14 @@ class ElementData extends $pb.GeneratedMessage {
   $core.bool hasServerTimestamp() => $_has(2);
   @$pb.TagNumber(3)
   void clearServerTimestamp() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get data => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set data($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasData() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearData() => clearField(4);
 }
 

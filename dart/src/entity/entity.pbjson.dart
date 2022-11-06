@@ -51,8 +51,9 @@ const ElementData$json = const {
     const {'1': 'gps', '3': 1, '4': 1, '5': 9, '10': 'gps'},
     const {'1': 'elementTimestamp', '3': 2, '4': 1, '5': 3, '10': 'elementTimestamp'},
     const {'1': 'serverTimestamp', '3': 3, '4': 1, '5': 3, '10': 'serverTimestamp'},
+    const {'1': 'data', '3': 4, '4': 1, '5': 9, '10': 'data'},
   ],
 };
 
 /// Descriptor for `ElementData`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List elementDataDescriptor = $convert.base64Decode('CgtFbGVtZW50RGF0YRIQCgNncHMYASABKAlSA2dwcxIqChBlbGVtZW50VGltZXN0YW1wGAIgASgDUhBlbGVtZW50VGltZXN0YW1wEigKD3NlcnZlclRpbWVzdGFtcBgDIAEoA1IPc2VydmVyVGltZXN0YW1w');
+final $typed_data.Uint8List elementDataDescriptor = $convert.base64Decode('CgtFbGVtZW50RGF0YRIQCgNncHMYASABKAlSA2dwcxIqChBlbGVtZW50VGltZXN0YW1wGAIgASgDUhBlbGVtZW50VGltZXN0YW1wEigKD3NlcnZlclRpbWVzdGFtcBgDIAEoA1IPc2VydmVyVGltZXN0YW1wEhIKBGRhdGEYBCABKAlSBGRhdGE=');

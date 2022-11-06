@@ -23,4 +23,5 @@ message ElementData {
   string gps = 1; // gps coordinate for the element
   int64 elementTimestamp = 2; // timestamp coming from the agent / element
   int64 serverTimestamp = 3; // timestamp coming from the server, when the data was received
+  string data = 4;
 }
