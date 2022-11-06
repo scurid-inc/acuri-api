@@ -24,4 +24,10 @@ message ElementData {
   int64 elementTimestamp = 2; // timestamp coming from the agent / element
   int64 serverTimestamp = 3; // timestamp coming from the server, when the data was received
   string data = 4;
+  MetaData metadata = 5;
+}
+// MetaData contains set of metadata attached to the dataset generated and sent from the devices to the server
+// generating these requires access to the identity on the device
+message MetaData {
+  string signature = 1; // signature is generated using the dataset that is being signed
 }
